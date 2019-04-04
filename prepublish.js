@@ -7,7 +7,7 @@ var path = require('path');
 
 var targz = require('node-tar.gz');
 
-var version = "7.0.5-5";
+var version = "7.0.8";
 
 console.log("removing stuff, that should not be published online for performance reasons");
 fse.emptyDirSync(path.join(__dirname, "bin/osx/imagemagick"));

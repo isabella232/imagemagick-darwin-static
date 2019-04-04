@@ -19,7 +19,7 @@ var imagemagickPath = path.join(
     'bin',
     'osx',
     'imagemagick',
-    '7.0.5-5',
+    '7.0.8',
     'bin'
 )
 
