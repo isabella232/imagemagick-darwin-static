@@ -61,7 +61,7 @@ typings/
 
 
 bin/osx/imagemagick/
-bundle/
+# bundle/
 
 
 
