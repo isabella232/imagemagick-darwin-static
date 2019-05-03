@@ -9,11 +9,11 @@ var version = "7.0.8";
 
 // Using callbacks
 console.log('Going to extract compressed imagemagick library, version: '+version);
-fs.mkdirSync(path.join(__dirname, 'bin/osx/imagemagick'), { recursive: true })
+fs.mkdirSync(path.join(__dirname, 'bin/osx/imagemagick', version), { recursive: true })
 tar.
     x({
         file: path.join(__dirname, '/bundle/' + version + '.tar.gz'),
-        C: path.join(__dirname, 'bin/osx/imagemagick')
+        C: path.join(__dirname, 'bin/osx/imagemagick', version)
     })
     .then(() => {
         fse.removeSync(path.join(__dirname, "bundle"));
