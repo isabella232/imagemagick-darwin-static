@@ -5,7 +5,7 @@ var fse = require('fs-extra');
 var os = require('os');
 var path = require('path');
 
-var targz = require('node-tar.gz');
+var tar = require('tar');
 
 var version = "7.0.8";
 
@@ -15,10 +15,12 @@ fse.emptyDirSync(path.join(__dirname, "bundle"));
 
 
 console.log("compressing a tar.gz archive of the imagemagic bundle, in version "+ version);
-targz().compress(path.join(__dirname, "bundle_src/"+version), path.join(__dirname, '/bundle/'+version+'.tar.gz'), function(err){
-    if(err)
-        console.log('Something is wrong ', err.stack);
-
+tar.c({
+    gzip: true,
+    file: path.join(__dirname, '/bundle/' + version + '.tar.gz'),
+    C: path.join(__dirname, "bundle_src/" + version)
+}, ['.'])
+.then(() => {
     console.log('compressing done!');
     console.log("ready to publish");
 });
